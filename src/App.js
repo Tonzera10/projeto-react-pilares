@@ -8,8 +8,8 @@ function App() {
     <div >
       <GlobalStyle/>
       <Header/>
-      {/* <Main/>
-      <Footer/> */}
+      <Main/>
+      <Footer/>
     </div>
   );
 }
