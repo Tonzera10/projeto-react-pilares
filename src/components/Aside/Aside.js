@@ -4,8 +4,10 @@ import { StyleAside } from "./Styled";
 export const Aside = () => {
     return (
         <StyleAside>
-            <b>Carrinho:</b>
-            
+            <h2>Carrinho:</h2>
+            <div>
+                
+            </div>
         </StyleAside>
     )
 }

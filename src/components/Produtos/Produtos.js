@@ -1,14 +1,17 @@
 import React from "react";
-import buzz from "../assets/Buzz.jpg"
 import { StyleImg, StyleProdutos } from "./Styled";
 
-export const Produto = () => {
+export const Produto = ({brinquedos}) => {
+
+
+
+
     return (
         <>
             <StyleProdutos>
-                    <StyleImg src={buzz}/>
-                    <p>Buzz Lightyear</p>
-                    <p>Valor: R$ 205,00</p>
+                    <StyleImg src={brinquedos.imagem}/>
+                    <p>{brinquedos.nome}</p>
+                    <p>Valor: R$ {brinquedos.valor},00</p>
                     <button>Adicionar no Carrinho</button>
             </StyleProdutos>
         </>

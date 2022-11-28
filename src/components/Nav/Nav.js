@@ -2,6 +2,9 @@ import React from "react"
 import { StyleNav } from "./Styled"
 
 export const Nav = () => {
+
+    
+
     return (
         <StyleNav>
             <p>Filtros</p>
@@ -18,7 +21,7 @@ export const Nav = () => {
             <label>
                 Busca por nome:
                 <br/>
-                <input type={"text"} value={"Produto"}></input>
+                <input ></input>
             </label>
         </StyleNav>
 

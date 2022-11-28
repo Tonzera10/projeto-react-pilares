@@ -2,7 +2,8 @@ import React from "react";
 import { Produtos, SectionHeader, StyleSection } from "./Styled";
 import { Produto } from "../Produtos/Produtos";
 
-export const Section = () => {
+
+export const Section = ({brinquedos}) => {
     return (
         <StyleSection>
             <SectionHeader>
@@ -16,10 +17,10 @@ export const Section = () => {
                 </label>
             </SectionHeader>
             <Produtos>
-                <Produto/>
-                <Produto/>
-                <Produto/>
-                <Produto/>
+                <Produto brinquedos={brinquedos[0]}/>
+                <Produto brinquedos={brinquedos[1]}/>
+                <Produto brinquedos={brinquedos[2]}/>
+                <Produto brinquedos={brinquedos[3]}/>
 
             </Produtos>
         </StyleSection>
