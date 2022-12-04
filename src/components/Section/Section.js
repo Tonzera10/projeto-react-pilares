@@ -3,7 +3,17 @@ import { Produtos, SectionHeader, StyleSection } from "./Styled";
 import { Produto } from "../Produtos/Produtos";
 
 
-export const Section = ({brinquedos}) => {
+export const Section = ({
+    brinquedos, 
+    setCarrinho, 
+    carrinho, 
+    valorMin, 
+    valorMax,
+    buscaNome
+}) => {
+
+
+
     return (
         <StyleSection>
             <SectionHeader>
@@ -11,17 +21,20 @@ export const Section = ({brinquedos}) => {
                 <label>
                     Ordenação:
                     <select>
-                        <option>Crescente</option>
-                        <option>Decrescente</option>
+                        <option value="Crescente">Crescente</option>
+                        <option value="Decrescente">Decrescente</option>
                     </select>
                 </label>
             </SectionHeader>
             <Produtos>
-                <Produto brinquedos={brinquedos[0]}/>
-                <Produto brinquedos={brinquedos[1]}/>
-                <Produto brinquedos={brinquedos[2]}/>
-                <Produto brinquedos={brinquedos[3]}/>
-
+                <Produto 
+                brinquedos={brinquedos} 
+                carrinho={carrinho}
+                setCarrinho={setCarrinho}
+                valorMin={valorMin}
+                valorMax={valorMax}
+                buscaNome={buscaNome}
+                />
             </Produtos>
         </StyleSection>
     )
