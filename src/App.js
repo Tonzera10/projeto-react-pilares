@@ -91,7 +91,10 @@ function App() {
       setOrdem={setOrdem}
       brinquedos={brinquedos} 
       carrinho={carrinho}
+      setCarrinho={setCarrinho}
       ordem={ordem}
+      setQuantidade={setQuantidade}
+      quantidade={quantidade}
       /> 
       : 
       <Carrinho 

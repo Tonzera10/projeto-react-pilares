@@ -10,11 +10,16 @@ export const Section = ({
   valorMax,
   buscaNome,
   ordem,
+  setQuantidade,
+  quantidade
 }) => {
 
     const adicionaNoCarrinho = (valor) => {
         const listaCarrinho = brinquedos.filter((item) => item === valor);
         setCarrinho(...carrinho, listaCarrinho);
+        const carrinhoEmString = JSON.stringify(carrinho);
+        localStorage.setItem("produtos", carrinhoEmString);
+        setQuantidade(quantidade+1)
     }
     console.log(carrinho)
   return (

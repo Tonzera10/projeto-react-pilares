@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleCarrinho } from "./Styled";
+import { ImgProduto, ProdutoNoCarrinho, StyleCarrinho } from "./Styled";
 
 export const Carrinho = ({ carrinho, setCarrinho,}) => {
 
@@ -13,14 +13,15 @@ export const Carrinho = ({ carrinho, setCarrinho,}) => {
       <h2>Carrinho:</h2>
       {carrinho.map((carro, indice) => {
         return (
-          <div key={indice}>
+          <ProdutoNoCarrinho key={indice}>
+            <ImgProduto src={carro.imagem}/>
             <p>
               {carro.quantidade}x {carro.nome} = {carro.valor}
             </p>
             <button onClick={() => removerDoCarrinho(carro)}>Remover da lista</button>
 
             <p>valor total = {carro.valor}</p>
-          </div>
+          </ProdutoNoCarrinho>
         );
       })}
     </StyleCarrinho>

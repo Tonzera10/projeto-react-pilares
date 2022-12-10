@@ -16,7 +16,9 @@ export const Main = ({
     brinquedos,
     carrinho,
     setCarrinho,
-    ordem
+    ordem,
+    setQuantidade,
+    quantidade
 }) => {
 
     
@@ -40,7 +42,8 @@ export const Main = ({
             buscaNome={buscaNome}
             setCarrinho={setCarrinho}
             ordem={ordem}
-
+            setQuantidade={setQuantidade}
+            quantidade={quantidade}
             />
         </StyleMain>
     )
