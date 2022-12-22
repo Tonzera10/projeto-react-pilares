@@ -2,7 +2,7 @@ import React from "react";
 import { BotaoCarrinho, ImgCarrinho, QntProdutos, StyleHeader, Titulo } from "./Styled";
 import carrinho from"../../assets/carrinho.png"
 
-export const Header = ({setTela, tela}) => {
+export const Header = ({setTela, tela, quantidade}) => {
 
     const mudarTela = () => {
         if(tela === 1){
@@ -15,7 +15,7 @@ export const Header = ({setTela, tela}) => {
     return (
         <StyleHeader>
             <Titulo>Ao Infinito e Além Store</Titulo>
-            <BotaoCarrinho onClick={mudarTela}><ImgCarrinho src={carrinho}/><QntProdutos>2</QntProdutos></BotaoCarrinho>
+            <BotaoCarrinho onClick={mudarTela}><ImgCarrinho src={carrinho}/><QntProdutos>{quantidade}</QntProdutos></BotaoCarrinho>
             
         </StyleHeader>
     )

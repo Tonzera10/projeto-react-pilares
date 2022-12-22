@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Produtos, StyleButton, StyleImg, StyleProdutos, StyleSection } from "./Styled";
 
 
@@ -14,14 +14,22 @@ export const Section = ({
   quantidade
 }) => {
 
+  useEffect(
+    () => {
+      if(carrinho.length > 0) {
+        const tarefasEmString = JSON.stringify(carrinho)
+        localStorage.setItem("produtos", tarefasEmString)
+      }
+    }, 
+    [carrinho]
+  );
+
     const adicionaNoCarrinho = (valor) => {
         const listaCarrinho = brinquedos.filter((item) => item === valor);
-        setCarrinho(...carrinho, listaCarrinho);
-        const carrinhoEmString = JSON.stringify(carrinho);
-        localStorage.setItem("produtos", carrinhoEmString);
+        setCarrinho([...carrinho, listaCarrinho]);
         setQuantidade(quantidade+1)
     }
-    console.log(carrinho)
+
   return (
     <StyleSection>
       <Produtos>

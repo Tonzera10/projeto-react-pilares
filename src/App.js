@@ -1,4 +1,4 @@
-import {GlobalStyle} from "./GlobalStyle";
+import {GlobalStyle, StyleApp} from "./GlobalStyle";
 import {Header} from "./components/Header/Header"
 import {Main} from "./components/Main/Main"
 import {Footer} from "./components/Footer/Footer"
@@ -28,58 +28,62 @@ function App() {
             valor: 250,
             imagem: `${buzz}`,
             quantidade: quantidade,
-            id: 1
+            id: Date.now()
         },
         {
             nome: "Zurg",
             valor: 235,
             imagem: `${zurg}`,
             quantidade: quantidade,
-            id: 2
+            id: Date.now()
         },
         {
             nome: "ET - Buzz",
             valor: 115,
             imagem: `${ets}`,
             quantidade: quantidade,
-            id: 3
+            id: Date.now()
         },
         {
             nome: "Buzz Lightyear Patrulheiro Espacial",
             valor: 230,
             imagem: `${buzzFilme}`,
             quantidade: quantidade,
-            id: 4
+            id: Date.now()
         },
         {
             nome: "LEGO Disney Pixar Caça ao Zyclops",
             valor: 125,
             imagem: `${lego}`,
             quantidade: quantidade,
-            id: 5
+            id: Date.now()
         },
         {
             nome: "Zurg - Lyghtyear",
             valor: 270,
             imagem: `${zurgFilme}`,
             quantidade: quantidade,
-            id: 6
+            id: Date.now()
         },
         {
             nome: "Mini Boneco Lightyear Com Nave",
             valor: 95,
             imagem: `${nave}`,
             quantidade: quantidade,
-            id: 6
+            id: Date.now()
         },
     ])
 
   
 
   return (
-    <div >
+    <StyleApp >
       <GlobalStyle/>
-      <Header setTela={setTela} tela={tela}/>
+      <Header 
+      setTela={setTela} 
+      tela={tela}
+      quantidade={quantidade}
+      />
       {tela === 1 ? 
       <Main
       valorMin={valorMin}
@@ -98,11 +102,13 @@ function App() {
       /> 
       : 
       <Carrinho 
+      quantidade={quantidade}
       carrinho={carrinho}
       setCarrinho={setCarrinho}
+      setQuantidade={setQuantidade}
       />} 
       <Footer/>
-    </div>
+    </StyleApp>
   );
 }
 

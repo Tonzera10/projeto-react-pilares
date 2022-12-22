@@ -18,8 +18,9 @@ export const Produtos = styled.div`
     flex-wrap: wrap;
     gap: 50px;
     margin-left: 50px;
-    
-`
+    margin-top: 20px;
+    margin-bottom: 20px;
+    `
 export const StyleProdutos = styled.div`
     border: solid 1px black;
     border-radius: 10px;
@@ -29,6 +30,10 @@ export const StyleProdutos = styled.div`
     width: 200px;
     height: 330px;
     padding: 10px;
+    &:hover{
+        transform: scale(1.2);
+    
+    }
 `
 export const StyleImg = styled.img`
     width: 170px;
@@ -38,4 +43,8 @@ export const StyleImg = styled.img`
 `
 export const StyleButton = styled.button`
     border-radius: 10px;
+    &:hover{
+        color: white;
+        background-color: purple;
+    }
 `

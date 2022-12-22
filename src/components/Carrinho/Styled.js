@@ -21,3 +21,11 @@ export const ImgProduto = styled.img`
     height: 80px;
     
 `
+export const StyleBotao = styled.button`
+    height: 30px;
+    &:hover{
+        color: white;
+        background-color: purple;
+    }
+    border-radius: 10px;
+`
