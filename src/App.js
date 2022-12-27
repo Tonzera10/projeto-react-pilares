@@ -1,4 +1,4 @@
-import {GlobalStyle, StyleApp} from "./GlobalStyle";
+import {GlobalStyle} from "./GlobalStyle";
 import {Header} from "./components/Header/Header"
 import {Main} from "./components/Main/Main"
 import {Footer} from "./components/Footer/Footer"
@@ -27,57 +27,57 @@ function App() {
             nome: "Buzz Lightyear",
             valor: 250,
             imagem: `${buzz}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 1
         },
         {
             nome: "Zurg",
             valor: 235,
             imagem: `${zurg}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 2
         },
         {
             nome: "ET - Buzz",
             valor: 115,
             imagem: `${ets}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 3
         },
         {
             nome: "Buzz Lightyear Patrulheiro Espacial",
             valor: 230,
             imagem: `${buzzFilme}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 4
         },
         {
             nome: "LEGO Disney Pixar Caça ao Zyclops",
             valor: 125,
             imagem: `${lego}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 5
         },
         {
             nome: "Zurg - Lyghtyear",
             valor: 270,
             imagem: `${zurgFilme}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 6
         },
         {
             nome: "Mini Boneco Lightyear Com Nave",
             valor: 95,
             imagem: `${nave}`,
-            quantidade: quantidade,
-            id: Date.now()
+            quantidade: 1,
+            id: 7
         },
     ])
 
   
 
   return (
-    <StyleApp >
+    <div >
       <GlobalStyle/>
       <Header 
       setTela={setTela} 
@@ -108,7 +108,7 @@ function App() {
       setQuantidade={setQuantidade}
       />} 
       <Footer/>
-    </StyleApp>
+    </div>
   );
 }
 

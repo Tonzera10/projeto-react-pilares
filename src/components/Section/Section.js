@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
-import { Produtos, StyleButton, StyleImg, StyleProdutos, StyleSection } from "./Styled";
-
+import {
+  Produtos,
+  StyleButton,
+  StyleImg,
+  StyleProdutos,
+  StyleSection,
+} from "./Styled";
 
 export const Section = ({
   brinquedos,
@@ -11,24 +16,30 @@ export const Section = ({
   buscaNome,
   ordem,
   setQuantidade,
-  quantidade
+  quantidade,
 }) => {
-
-  useEffect(
-    () => {
-      if(carrinho.length > 0) {
-        const tarefasEmString = JSON.stringify(carrinho)
-        localStorage.setItem("produtos", tarefasEmString)
-      }
-    }, 
-    [carrinho]
-  );
-
-    const adicionaNoCarrinho = (valor) => {
-        const listaCarrinho = brinquedos.filter((item) => item === valor);
-        setCarrinho([...carrinho, listaCarrinho]);
-        setQuantidade(quantidade+1)
+  useEffect(() => {
+    if (carrinho.length > 0) {
+      const tarefasEmString = JSON.stringify(carrinho);
+      localStorage.setItem("produtos", tarefasEmString);
     }
+  }, [carrinho]);
+
+  const adicionaNoCarrinho = (obj, id) => {
+    const listaCarrinho = brinquedos.filter((item) => item === obj);
+    // setCarrinho([...carrinho, listaCarrinho]);
+    // setQuantidade(quantidade + 1);
+    const copiaCarrinho = [...carrinho];
+
+    const item = copiaCarrinho.find((produto) => produto.id === obj.id);
+
+    if(!item) {
+      copiaCarrinho.push(listaCarrinho)
+    } else {
+      item.quantidade = item.quantidade + 1;
+    }
+    setCarrinho(...carrinho,copiaCarrinho)
+  };
 
   return (
     <StyleSection>
@@ -46,21 +57,21 @@ export const Section = ({
             return brinquedo.valor <= valorMax || valorMax === "";
           })
           .sort((a, b) => {
-            if(ordem.toLowerCase() === "crescente") {
-                if(a.valor < b.valor) {
-                  return  -1;
-                } else {
-                  return true
-                }
-              };
-  
-              if(ordem.toLowerCase() === "decrescente"){
-                if(a.valor > b.valor) {
-                  return  -1;
-                } else {
-                  return true
-                }
+            if (ordem.toLowerCase() === "crescente") {
+              if (a.valor < b.valor) {
+                return -1;
+              } else {
+                return true;
               }
+            }
+
+            if (ordem.toLowerCase() === "decrescente") {
+              if (a.valor > b.valor) {
+                return -1;
+              } else {
+                return true;
+              }
+            }
           })
           .map((brinquedo, indice) => {
             return (
@@ -73,7 +84,7 @@ export const Section = ({
                 </StyleButton>
               </StyleProdutos>
             );
-        })}
+          })}
       </Produtos>
     </StyleSection>
   );

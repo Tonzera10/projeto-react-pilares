@@ -26,13 +26,13 @@ export const Carrinho = ({ carrinho, setCarrinho, quantidade, setQuantidade}) =>
       {carrinho.map((carro, indice) => {
         return (
           <>
-          <ProdutoNoCarrinho key={indice}>
+          <ProdutoNoCarrinho key={indice[0]}>
             <ImgProduto src={carro[0].imagem}/>
             <p>
               {carro[0].nome} = {carro[0].valor},00
             </p>
             <StyleBotao onClick={() => removerDoCarrinho(carro[0])}>Remover da lista</StyleBotao>
-
+            <p>{`${carro[0].quantidade}x`}</p>
             <p>valor total = {carro[0].valor},00</p>
           </ProdutoNoCarrinho>
           </>

@@ -7,7 +7,3 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   `
-export const StyleApp = styled.div`
-background-image: url("./assets/espaço.jpg");
-
-`
