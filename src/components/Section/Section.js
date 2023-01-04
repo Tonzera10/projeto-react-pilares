@@ -27,18 +27,18 @@ export const Section = ({
 
   const adicionaNoCarrinho = (obj, id) => {
     const listaCarrinho = brinquedos.filter((item) => item === obj);
-    // setCarrinho([...carrinho, listaCarrinho]);
-    // setQuantidade(quantidade + 1);
-    const copiaCarrinho = [...carrinho];
+    setCarrinho([...carrinho, listaCarrinho]);
+    setQuantidade(quantidade + 1);
+    // const copiaCarrinho = [...carrinho];
 
-    const item = copiaCarrinho.find((produto) => produto.id === obj.id);
+    // const item = copiaCarrinho.find((produto) => produto.id === obj.id);
 
-    if(!item) {
-      copiaCarrinho.push(listaCarrinho)
-    } else {
-      item.quantidade = item.quantidade + 1;
-    }
-    setCarrinho(...carrinho,copiaCarrinho)
+    // if (!item) {
+    //   copiaCarrinho.push(listaCarrinho);
+    // } else {
+    //   item.quantidade = item.quantidade + 1;
+    // }
+    // setCarrinho(...carrinho, copiaCarrinho);
   };
 
   return (
