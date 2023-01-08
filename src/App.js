@@ -4,13 +4,7 @@ import {Main} from "./components/Main/Main"
 import {Footer} from "./components/Footer/Footer"
 import { useState } from "react";
 import { Carrinho } from "./components/Carrinho/Carrinho";
-import buzz from "./assets/Buzz/Buzz.jpg"
-import zurg from "./assets/Zurg/Zurg.jpg"
-import ets from "./assets/Ets/Et.jpg"
-import buzzFilme from "./assets/BuzzFilme/BuzzFilme.jpg"
-import lego from "./assets/Lego/LegoBuzz.jpg"
-import nave from "./assets/Nave/Nave.jpg"
-import zurgFilme from "./assets/ZurgFilme/ZurgFilme.jpg"
+import { useEffect } from "react";
 
 
 function App() {
@@ -20,61 +14,30 @@ function App() {
     const [valorMax, setValorMax] = useState("")
     const [buscaNome, setBuscaNome] = useState("")
     const [ordem, setOrdem] = useState("")
-    const [quantidade, setQuantidade] = useState(0)
     const [carrinho, setCarrinho] = useState([])
-    const [brinquedos, setBrinquedos] = useState([
-        {
-            nome: "Buzz Lightyear",
-            valor: 250,
-            imagem: `${buzz}`,
-            quantidade: 1,
-            id: 1
-        },
-        {
-            nome: "Zurg",
-            valor: 235,
-            imagem: `${zurg}`,
-            quantidade: 1,
-            id: 2
-        },
-        {
-            nome: "ET - Buzz",
-            valor: 115,
-            imagem: `${ets}`,
-            quantidade: 1,
-            id: 3
-        },
-        {
-            nome: "Buzz Lightyear Patrulheiro Espacial",
-            valor: 230,
-            imagem: `${buzzFilme}`,
-            quantidade: 1,
-            id: 4
-        },
-        {
-            nome: "LEGO Disney Pixar Caça ao Zyclops",
-            valor: 125,
-            imagem: `${lego}`,
-            quantidade: 1,
-            id: 5
-        },
-        {
-            nome: "Zurg - Lyghtyear",
-            valor: 270,
-            imagem: `${zurgFilme}`,
-            quantidade: 1,
-            id: 6
-        },
-        {
-            nome: "Mini Boneco Lightyear Com Nave",
-            valor: 95,
-            imagem: `${nave}`,
-            quantidade: 1,
-            id: 7
-        },
-    ])
+    const [quantidade, setQuantidade] = useState(0)
 
-  
+
+    const setItem = () => { // Função criada para setar os itens, do estado carrinho, no local storage
+
+        const produtosEmString = JSON.stringify(carrinho);
+        localStorage.setItem("produtos", produtosEmString);
+      
+    }
+    const getItem = () => { //função criada para pegar os itens que estão no local storage
+        const lista = JSON.parse(localStorage.getItem("produtos"));
+        if(lista.length > 0){ // condição para pegar apenas se houver itens no local storage
+            return setCarrinho(lista);
+        } 
+    }
+    useEffect(() => {// chamada da função de pegar itens usando useEffect para não entrar em loop
+        getItem()
+    }, []);
+
+    useEffect(() => { //chamada da função de setar itens usando useEffect para não entrar em loop e usando a condição de quando mudar o estado carrinho
+        setItem()
+    }, [carrinho])
+    
 
   return (
     <div >
@@ -92,13 +55,14 @@ function App() {
       setValorMax={setValorMax}
       buscaNome={buscaNome}
       setBuscaNome={setBuscaNome}
-      setOrdem={setOrdem}
-      brinquedos={brinquedos} 
+      setOrdem={setOrdem} 
       carrinho={carrinho}
       setCarrinho={setCarrinho}
       ordem={ordem}
       setQuantidade={setQuantidade}
       quantidade={quantidade}
+      getItem={getItem}
+      setItem={setItem}
       /> 
       : 
       <Carrinho 
@@ -106,6 +70,8 @@ function App() {
       carrinho={carrinho}
       setCarrinho={setCarrinho}
       setQuantidade={setQuantidade}
+      getItem={getItem}
+      setItem={setItem}
       />} 
       <Footer/>
     </div>

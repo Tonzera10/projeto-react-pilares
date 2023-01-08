@@ -12,8 +12,9 @@ export const StyleCarrinho = styled.div`
 `
 
 export const ProdutoNoCarrinho = styled.div`
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: center;
 `
 
 export const ImgProduto = styled.img`
@@ -28,4 +29,7 @@ export const StyleBotao = styled.button`
         background-color: purple;
     }
     border-radius: 10px;
+`
+export const Vazio = styled.h1`
+    text-align: center;
 `

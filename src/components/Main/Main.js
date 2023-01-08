@@ -18,7 +18,9 @@ export const Main = ({
     setCarrinho,
     ordem,
     setQuantidade,
-    quantidade
+    quantidade,
+    setItem,
+    getItem
 }) => {
 
     
@@ -44,6 +46,8 @@ export const Main = ({
             ordem={ordem}
             setQuantidade={setQuantidade}
             quantidade={quantidade}
+            setItem={setItem}
+            getItem={getItem}
             />
         </StyleMain>
     )
