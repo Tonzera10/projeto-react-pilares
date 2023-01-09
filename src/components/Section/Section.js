@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Produtos,
   StyleButton,
@@ -6,9 +6,10 @@ import {
   StyleProdutos,
   StyleSection,
 } from "./Styled";
+import { brinquedos } from "../../data";
+
 
 export const Section = ({
-  brinquedos,
   setCarrinho,
   carrinho,
   valorMin,
@@ -17,46 +18,57 @@ export const Section = ({
   ordem,
   setQuantidade,
   quantidade,
+  valorTotal,
+  setValorTotal
 }) => {
-  useEffect(() => {
-    if (carrinho.length > 0) {
-      const tarefasEmString = JSON.stringify(carrinho);
-      localStorage.setItem("produtos", tarefasEmString);
+
+  const adicionaNoCarrinho = (item) => {
+    //Cópia do carrinho usando spread operator
+    const copiaDoCarrinho = [...carrinho];
+
+    //Variavel utilizando find para encontrar se existe dentro do carrinho um produto com o mesmo nome "O nome é a propriedade do objeto, mas podemos usar outras, como por exemplo ID"
+    const verificaCopiaDoCarrinho = copiaDoCarrinho.find(
+      (produto) => produto.nome === item.nome
+    );
+
+    //Condição para criar o item no carrinho caso a váriavel acima não encontre "e retorne False"
+    if (!verificaCopiaDoCarrinho) {
+      copiaDoCarrinho.push({
+        nome: item.nome,
+        valor: item.valor,
+        imagem: item.imagem,
+        quantidade: item.quantidade,
+        id: item.id,
+      });
+      setCarrinho(copiaDoCarrinho);
+      setQuantidade(quantidade + 1)
     }
-  }, [carrinho]);
 
-  const adicionaNoCarrinho = (obj, id) => {
-    const listaCarrinho = brinquedos.filter((item) => item === obj);
-    setCarrinho([...carrinho, listaCarrinho]);
-    setQuantidade(quantidade + 1);
-    // const copiaCarrinho = [...carrinho];
-
-    // const item = copiaCarrinho.find((produto) => produto.id === obj.id);
-
-    // if (!item) {
-    //   copiaCarrinho.push(listaCarrinho);
-    // } else {
-    //   item.quantidade = item.quantidade + 1;
-    // }
-    // setCarrinho(...carrinho, copiaCarrinho);
+   // Condição para alterar apenas a quantidade do objeto quando a Váriavel encontrar o objeto no carrinho.
+    else {
+      verificaCopiaDoCarrinho.quantidade = verificaCopiaDoCarrinho.quantidade + 1;
+      setCarrinho(copiaDoCarrinho);
+      setQuantidade(quantidade + 1)
+      
+    }
   };
 
   return (
     <StyleSection>
       <Produtos>
         {brinquedos
-          .filter((brinquedo) => {
+          .filter((brinquedo) => { //Filtro para aparecer somente os itens com o nome digitado no input de buscar por nome
             return brinquedo.nome
               .toLowerCase()
               .includes(buscaNome.toLowerCase());
           })
-          .filter((brinquedo) => {
+          .filter((brinquedo) => { //Filtro para aparecer somente os itens  com o valor minimo digitado no input de valor mínimo
             return brinquedo.valor >= valorMin || valorMin === "";
           })
-          .filter((brinquedo) => {
+          .filter((brinquedo) => { //Filtro para aparecer somente os itens  com o valor máximo digitado no input de valor máximo
             return brinquedo.valor <= valorMax || valorMax === "";
           })
-          .sort((a, b) => {
+          .sort((a, b) => { //Filtro para ordenar os intens em valor crescente ou decrescente
             if (ordem.toLowerCase() === "crescente") {
               if (a.valor < b.valor) {
                 return -1;
@@ -73,7 +85,7 @@ export const Section = ({
               }
             }
           })
-          .map((brinquedo, indice) => {
+          .map((brinquedo, indice) => { //faz o mapeamento do array brinquedos para renderizar os itens  na tela
             return (
               <StyleProdutos key={indice}>
                 <StyleImg src={brinquedo.imagem} />

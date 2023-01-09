@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleNav } from "./Styled";
+import { StyleInput, StyleNav, StyleSelect } from "./Styled";
 
 export const Nav = ({
   valorMin,
@@ -10,47 +10,40 @@ export const Nav = ({
   setBuscaNome,
   setOrdem
 }) => {
-  const buscaValorMin = (e) => {
-    setValorMin(e.target.value);
-  };
-
-  const buscaValorMax = (e) => {
-    setValorMax(e.target.value);
-  };
-
-  const buscaPorNome = (e) => {
-    setBuscaNome(e.target.value);
-  };
-
-  const ordenar = (e) => {
-    setOrdem(e.target.value)
-}
-
   return (
     <StyleNav>
       <p>Filtros</p>
       <label>
-        Ordenação:
-        <select onChange={ordenar}>
+        Ordenação: 
+        <StyleSelect 
+        onChange={(e) => setOrdem(e.target.value)}>
           <option value="">Escolha a Ordem</option>
           <option value="Crescente">Crescente</option>
           <option value="Decrescente">Decrescente</option>
-        </select>
+        </StyleSelect>
       </label>
       <label>
         Valor mínimo:
         <br />
-        <input type={"number"} onChange={buscaValorMin} value={valorMin} />
+        <StyleInput 
+        type={"number"} 
+        onChange={(e) => setValorMin(e.target.value)} 
+        value={valorMin} /> 
       </label>
       <label>
         Valor máximo:
         <br />
-        <input type={"number"} onChange={buscaValorMax} value={valorMax} />
+        <StyleInput 
+        type={"number"} 
+        onChange={(e) => setValorMax(e.target.value)} 
+        value={valorMax} />
       </label>
       <label>
         Busca por nome:
         <br />
-        <input onChange={buscaPorNome} value={buscaNome} />
+        <StyleInput 
+        onChange={(e) => setBuscaNome(e.target.value)} 
+        value={buscaNome} />
       </label>
     </StyleNav>
   );

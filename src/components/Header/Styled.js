@@ -26,7 +26,7 @@ export const QntProdutos = styled.p`
     margin-right: 15px;
     background-color: purple;
     color: white;
-    width: 10px;
+    width: 20px;
     border-radius: 50px;
     position: absolute;
 `
