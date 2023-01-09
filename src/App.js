@@ -71,9 +71,6 @@ function App() {
       quantidade={quantidade}
       getItem={getItem}
       setItem={setItem}
-      valorTotal={valorTotal}
-      setValorTotal={setValorTotal}
-      somaValorTotal={somaValorTotal}
       /> 
       : 
       <Carrinho 
@@ -84,8 +81,6 @@ function App() {
       getItem={getItem}
       setItem={setItem}
       valorTotal={valorTotal}
-      setValorTotal={setValorTotal}
-      somaValorTotal={somaValorTotal}
       />} 
       <Footer/>
     </div>

@@ -13,8 +13,6 @@ export const Carrinho = ({
   quantidade,
   setQuantidade,
   valorTotal,
-  setValorTotal,
-  somaValorTotal
 }) => {
 
   
