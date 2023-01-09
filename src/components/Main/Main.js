@@ -20,7 +20,9 @@ export const Main = ({
     setQuantidade,
     quantidade,
     setItem,
-    getItem
+    getItem,
+    valorTotal,
+    setValorTotal
 }) => {
 
     
@@ -48,6 +50,8 @@ export const Main = ({
             quantidade={quantidade}
             setItem={setItem}
             getItem={getItem}
+            valorTotal={valorTotal}
+            setValorTotal={setValorTotal}
             />
         </StyleMain>
     )

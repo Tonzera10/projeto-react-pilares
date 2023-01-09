@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   ImgProduto,
   ProdutoNoCarrinho,
@@ -6,15 +6,15 @@ import {
   StyleCarrinho,
   Vazio,
 } from "./Styled";
-import { brinquedos } from "../../data";
 
 export const Carrinho = ({
   carrinho,
   setCarrinho,
   quantidade,
   setQuantidade,
-  getItem,
-  setItem
+  valorTotal,
+  setValorTotal,
+  somaValorTotal
 }) => {
 
   
@@ -32,7 +32,7 @@ export const Carrinho = ({
       const listaCarrinho = copiaDoCarrinho.filter((produto) => produto !== item);
       setCarrinho(listaCarrinho);
       setQuantidade(quantidade - 1);
-    }else {
+    }else { //
         verificaCopiaDoCarrinho.quantidade = verificaCopiaDoCarrinho.quantidade - 1;
         setCarrinho(copiaDoCarrinho);
       setQuantidade(quantidade - 1);
@@ -43,28 +43,29 @@ export const Carrinho = ({
   return (
     <StyleCarrinho>
       <h2>Carrinho:</h2>
-      {carrinho?.length > 0 ? carrinho.map((carro, indice) => {
+      {carrinho?.length > 0 ? carrinho.map((carro) => {
         //Aqui está mapeando o array de carrinho para renderizar na pagina.
         return (
           <>
           
-            <ProdutoNoCarrinho key={indice}>
+            <ProdutoNoCarrinho key={carro.id}>
               <ImgProduto src={carro.imagem} alt={carro.nome}/>
-              <p>
-                {carro.nome}
-              </p>
+              <p>{carro.nome}</p>
+              <p>Valor Unitário: {carro.valor},00</p>
               <StyleBotao onClick={() => removerDoCarrinho(carro)}>
                 Remover da lista
               </StyleBotao>
               <p>{`${carro.quantidade}x`}</p>
-              <p>valor total = {carro.valor},00</p>
+              <p>Valor total = {carro.valor*carro.quantidade},00</p>
+            
             </ProdutoNoCarrinho>
           </>
         )
       })
-          :
-          <Vazio>Vazio, adicione algúm produto!</Vazio>
-      }
+      :
+      <Vazio>Vazio, adicione algúm produto!</Vazio>
+    }
+    <h2>Valor total da compra: {valorTotal},00</h2>
     </StyleCarrinho>
   );
 };

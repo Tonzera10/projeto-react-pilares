@@ -16,7 +16,14 @@ function App() {
     const [ordem, setOrdem] = useState("")
     const [carrinho, setCarrinho] = useState([])
     const [quantidade, setQuantidade] = useState(0)
+    const [valorTotal, setValorTotal] = useState(0)
 
+  
+  const somaValorTotal = (array) => {
+    array?.length > 0 &&
+    setValorTotal(array.reduce((carro, item)=> carro + (item.valor*item.quantidade)))
+    console.log(valorTotal);
+  }
 
     const setItem = () => { // Função criada para setar os itens, do estado carrinho, no local storage
 
@@ -32,6 +39,7 @@ function App() {
     }
     useEffect(() => {// chamada da função de pegar itens usando useEffect para não entrar em loop
         getItem()
+        somaValorTotal(() => somaValorTotal(carrinho))        
     }, []);
 
     useEffect(() => { //chamada da função de setar itens usando useEffect para não entrar em loop e usando a condição de quando mudar o estado carrinho
@@ -63,6 +71,9 @@ function App() {
       quantidade={quantidade}
       getItem={getItem}
       setItem={setItem}
+      valorTotal={valorTotal}
+      setValorTotal={setValorTotal}
+      somaValorTotal={somaValorTotal}
       /> 
       : 
       <Carrinho 
@@ -72,6 +83,9 @@ function App() {
       setQuantidade={setQuantidade}
       getItem={getItem}
       setItem={setItem}
+      valorTotal={valorTotal}
+      setValorTotal={setValorTotal}
+      somaValorTotal={somaValorTotal}
       />} 
       <Footer/>
     </div>

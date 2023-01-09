@@ -5,6 +5,8 @@ import buzzFilme from "./assets/BuzzFilme/BuzzFilme.jpg"
 import lego from "./assets/Lego/LegoBuzz.jpg"
 import nave from "./assets/Nave/Nave.jpg"
 import zurgFilme from "./assets/ZurgFilme/ZurgFilme.jpg"
+import { useState } from "react"
+
 
 export const brinquedos = [
     {

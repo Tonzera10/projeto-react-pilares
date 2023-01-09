@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Produtos,
   StyleButton,
@@ -8,8 +8,8 @@ import {
 } from "./Styled";
 import { brinquedos } from "../../data";
 
+
 export const Section = ({
-  // brinquedos,
   setCarrinho,
   carrinho,
   valorMin,
@@ -18,8 +18,8 @@ export const Section = ({
   ordem,
   setQuantidade,
   quantidade,
-  getItem,
-  setItem
+  valorTotal,
+  setValorTotal
 }) => {
 
   const adicionaNoCarrinho = (item) => {
@@ -51,7 +51,6 @@ export const Section = ({
       setQuantidade(quantidade + 1)
       
     }
-    console.log(carrinho);
   };
 
   return (

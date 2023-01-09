@@ -8,10 +8,10 @@ export const Footer = () => {
                 Criado por: Everton Mello
             </p>
             <p>
-                LinkedIn: <a href="https://www.linkedin.com/in/everton-mello-51b72023a/">Everton Mello</a>
+                LinkedIn: <a href="https://www.linkedin.com/in/everton-mello-51b72023a/" target="_blank">Everton Mello</a>
             </p>
             <p>
-                GitHub: <a href="https://github.com/Tonzera10">Everton Mello</a>
+                GitHub: <a href="https://github.com/Tonzera10" target="_blank">Everton Mello</a>
             </p>
         </StyleFooter>
 
