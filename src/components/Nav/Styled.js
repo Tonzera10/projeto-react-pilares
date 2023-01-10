@@ -15,7 +15,9 @@ export const StyleNav = styled.div`
 `
 export const StyleInput = styled.input`
     border-radius: 10px;
+    width: 100%;
 `
 export const StyleSelect = styled.select`
     border-radius: 10px;
+    width: 100%;
 `
