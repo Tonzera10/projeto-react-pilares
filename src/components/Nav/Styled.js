@@ -6,7 +6,7 @@ export const StyleNav = styled.div`
     flex-direction: column;
     gap: 20px;
     height: auto;
-    width: 300px;
+    width: 17vw;
     padding: 20px;
     grid-column: 1/2;
     border-radius: 10px;

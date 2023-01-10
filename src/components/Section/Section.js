@@ -8,7 +8,6 @@ import {
 } from "./Styled";
 import { brinquedos } from "../../data";
 
-
 export const Section = ({
   setCarrinho,
   carrinho,
@@ -18,10 +17,7 @@ export const Section = ({
   ordem,
   setQuantidade,
   quantidade,
-  valorTotal,
-  setValorTotal
 }) => {
-
   const adicionaNoCarrinho = (item) => {
     //Cópia do carrinho usando spread operator
     const copiaDoCarrinho = [...carrinho];
@@ -41,15 +37,15 @@ export const Section = ({
         id: item.id,
       });
       setCarrinho(copiaDoCarrinho);
-      setQuantidade(quantidade + 1)
+      setQuantidade(quantidade + 1);
     }
 
-   // Condição para alterar apenas a quantidade do objeto quando a Váriavel encontrar o objeto no carrinho.
+    // Condição para alterar apenas a quantidade do objeto quando a Váriavel encontrar o objeto no carrinho.
     else {
-      verificaCopiaDoCarrinho.quantidade = verificaCopiaDoCarrinho.quantidade + 1;
+      verificaCopiaDoCarrinho.quantidade =
+        verificaCopiaDoCarrinho.quantidade + 1;
       setCarrinho(copiaDoCarrinho);
-      setQuantidade(quantidade + 1)
-      
+      setQuantidade(quantidade + 1);
     }
   };
 
@@ -57,18 +53,22 @@ export const Section = ({
     <StyleSection>
       <Produtos>
         {brinquedos
-          .filter((brinquedo) => { //Filtro para aparecer somente os itens com o nome digitado no input de buscar por nome
+          .filter((brinquedo) => {
+            //Filtro para aparecer somente os itens com o nome digitado no input de buscar por nome
             return brinquedo.nome
               .toLowerCase()
               .includes(buscaNome.toLowerCase());
           })
-          .filter((brinquedo) => { //Filtro para aparecer somente os itens  com o valor minimo digitado no input de valor mínimo
+          .filter((brinquedo) => {
+            //Filtro para aparecer somente os itens  com o valor minimo digitado no input de valor mínimo
             return brinquedo.valor >= valorMin || valorMin === "";
           })
-          .filter((brinquedo) => { //Filtro para aparecer somente os itens  com o valor máximo digitado no input de valor máximo
+          .filter((brinquedo) => {
+            //Filtro para aparecer somente os itens  com o valor máximo digitado no input de valor máximo
             return brinquedo.valor <= valorMax || valorMax === "";
           })
-          .sort((a, b) => { //Filtro para ordenar os intens em valor crescente ou decrescente
+          .sort((a, b) => {
+            //Filtro para ordenar os intens em valor crescente ou decrescente
             if (ordem.toLowerCase() === "crescente") {
               if (a.valor < b.valor) {
                 return -1;
@@ -85,7 +85,8 @@ export const Section = ({
               }
             }
           })
-          .map((brinquedo, indice) => { //faz o mapeamento do array brinquedos para renderizar os itens  na tela
+          .map((brinquedo, indice) => {
+            //faz o mapeamento do array brinquedos para renderizar os itens  na tela
             return (
               <StyleProdutos key={indice}>
                 <StyleImg src={brinquedo.imagem} />
