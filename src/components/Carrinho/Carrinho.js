@@ -63,7 +63,7 @@ export const Carrinho = ({
       ) : (
         <Vazio>Vazio, adicione algúm produto!</Vazio>
       )}
-      <H2>Valor total da compra: {valorTotal},00</H2>
+      <H2>Valor total da compra: R${valorTotal},00</H2>
     </StyleCarrinho>
   );
 };

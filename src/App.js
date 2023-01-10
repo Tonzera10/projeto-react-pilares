@@ -20,22 +20,22 @@ function App() {
     // função criada para somar o valor total dos produtos dentro do carrinho
     array?.length > 0 // ternário para verificar se tem algum item no carrinho
       ? setValorTotal(
-          array.reduce(
+          array.reduce(// Se tiver ele faz o reduce q é um metodo do JS para somar valores escolhidos de um array
             (carro, item) => Number(carro + item.valor * item.quantidade),
             []
           )
-        ) // Se tiver ele faz o reduce q é um metodo do JS para somar valores de um array
+        ) 
       : setValorTotal(0); // Se não tiver o valor sera igual a zero
   };
   const quantidadeItens = (array) => {
-    // função criada para somar o valor total dos produtos dentro do carrinho
+    // função criada para saber quantidade de itens dentro do carrinho
     array?.length > 0 // ternário para verificar se tem algum item no carrinho
       ? setQuantidade(
-          array.reduce(
+          array.reduce( // Se tiver ele faz o reduce q é um metodo do JS para somar valores escolhidos de um array
             (carro, item) => Number(carro + item.quantidade),
             []
           )
-        ) // Se tiver ele faz o reduce q é um metodo do JS para somar valores de um array
+        )
       : setQuantidade(0); // Se não tiver o valor sera igual a zero
   };
 
