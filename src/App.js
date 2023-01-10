@@ -37,24 +37,24 @@ function App() {
   const getItem = () => {
     //função criada para pegar os itens que estão no local storage
     const lista = JSON.parse(localStorage.getItem("produtos"));
-    if (lista.length > 0) {
+    if (lista?.length > 0) {
       // condição para pegar apenas se houver itens no local storage
       return setCarrinho(lista);
     }
   };
-
+  
   useEffect(() => {
     // chamada da função de pegar itens usando useEffect para não entrar em loop
     getItem();
   }, []);
-
+  
   useEffect(() => {
     //chamada da função de setar itens usando useEffect para não entrar em loop e usando a condição de quando mudar o estado carrinho
     setItem();
     somaValorTotal(carrinho);
     setQuantidade(carrinho.length);
   }, [carrinho]);
-
+  
   return (
     <div>
       <GlobalStyle />
