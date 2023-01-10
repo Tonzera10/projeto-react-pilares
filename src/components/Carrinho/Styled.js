@@ -6,15 +6,14 @@ export const StyleCarrinho = styled.div`
     border: solid 1px black;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-
+    
 `
 
 export const ProdutoNoCarrinho = styled.div`
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
+    align-items: center;
 `
 
 export const ImgProduto = styled.img`
@@ -23,7 +22,7 @@ export const ImgProduto = styled.img`
     
 `
 export const StyleBotao = styled.button`
-    height: 30px;
+    height: 25px;
     &:hover{
         color: white;
         background-color: purple;
@@ -32,4 +31,8 @@ export const StyleBotao = styled.button`
 `
 export const Vazio = styled.h1`
     text-align: center;
+`
+export const H2 = styled.h2`
+    background-color: purple;
+    color: white;
 `

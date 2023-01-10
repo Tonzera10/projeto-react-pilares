@@ -30,6 +30,7 @@ export const StyleProdutos = styled.div`
     width: 200px;
     height: 330px;
     padding: 10px;
+    background-color: white;
     &:hover{
         transform: scale(1.2);
     
