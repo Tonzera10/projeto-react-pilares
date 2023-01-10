@@ -27,6 +27,17 @@ function App() {
         ) // Se tiver ele faz o reduce q é um metodo do JS para somar valores de um array
       : setValorTotal(0); // Se não tiver o valor sera igual a zero
   };
+  const quantidadeItens = (array) => {
+    // função criada para somar o valor total dos produtos dentro do carrinho
+    array?.length > 0 // ternário para verificar se tem algum item no carrinho
+      ? setQuantidade(
+          array.reduce(
+            (carro, item) => Number(carro + item.quantidade),
+            []
+          )
+        ) // Se tiver ele faz o reduce q é um metodo do JS para somar valores de um array
+      : setQuantidade(0); // Se não tiver o valor sera igual a zero
+  };
 
   const setItem = () => {
     // Função criada para setar os itens, do estado carrinho, no local storage
@@ -52,7 +63,7 @@ function App() {
     //chamada da função de setar itens usando useEffect para não entrar em loop e usando a condição de quando mudar o estado carrinho
     setItem();
     somaValorTotal(carrinho);
-    setQuantidade(carrinho.length);
+    quantidadeItens(carrinho);
   }, [carrinho]);
   
   return (
