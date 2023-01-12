@@ -6,7 +6,8 @@ export const StyleCarrinho = styled.div`
     border: solid 1px black;
     display: flex;
     flex-direction: column;
-    
+    background-color: purple;
+    gap: 10px;
 `
 
 export const ProdutoNoCarrinho = styled.div`
@@ -14,6 +15,9 @@ export const ProdutoNoCarrinho = styled.div`
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     align-items: center;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: white;
 `
 
 export const ImgProduto = styled.img`
