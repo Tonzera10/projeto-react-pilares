@@ -5,6 +5,9 @@ import buzzFilme from "./assets/BuzzFilme/BuzzFilme.jpg"
 import lego from "./assets/Lego/LegoBuzz.jpg"
 import nave from "./assets/Nave/Nave.jpg"
 import zurgFilme from "./assets/ZurgFilme/ZurgFilme.jpg"
+import armaZurg from "./assets/ArmaZurg/ArmaZurg.jpg"
+import cinto from  "./assets/Cinto/Cinto.jpg"
+import lamina from "./assets/Lamina/LaminaDeLaser.webp"
 
 export const brinquedos = [
     {
@@ -55,5 +58,26 @@ export const brinquedos = [
         imagem: nave,
         quantidade: 1,
         id: 7
+    },
+    {
+        nome: "Lâmina de Laser DX",
+        valor: 190,
+        imagem: lamina,
+        quantidade: 1,
+        id: 8
+    },
+    {
+        nome: "Arma de Zurg",
+        valor: 140,
+        imagem: armaZurg,
+        quantidade: 1,
+        id: 9
+    },
+    {
+        nome: "Cinto de Buzz",
+        valor: 207,
+        imagem: cinto,
+        quantidade: 1,
+        id: 10
     },
 ]
