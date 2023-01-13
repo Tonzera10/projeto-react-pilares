@@ -27,6 +27,7 @@ function App() {
         ) 
       : setValorTotal(0); // Se não tiver o valor sera igual a zero
   };
+  
   const quantidadeItens = (array) => {
     // função criada para saber quantidade de itens dentro do carrinho
     array?.length > 0 // ternário para verificar se tem algum item no carrinho
