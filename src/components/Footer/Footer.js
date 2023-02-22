@@ -8,7 +8,7 @@ export const Footer = () => {
       <p>
         LinkedIn:
         <a
-          href="https://www.linkedin.com/in/everton-mello-51b72023a/"
+          href="https://www.linkedin.com/in/ton-mello/"
           target="_blank"
         >
           Everton Mello

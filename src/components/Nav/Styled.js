@@ -8,7 +8,6 @@ export const StyleNav = styled.div`
     height: auto;
     width: 400px;
     padding: 20px;
-    grid-column: 1/2;
     border-radius: 10px;
     background-color: purple;
     color: white;

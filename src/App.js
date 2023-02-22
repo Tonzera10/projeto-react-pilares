@@ -37,7 +37,7 @@ function App() {
             []
           )
         )
-      : setQuantidade(0); // Se não tiver o valor sera igual a zero
+      : setQuantidade(0); // Se não tiver, o valor sera igual a zero
   };
 
   const setItem = () => {
